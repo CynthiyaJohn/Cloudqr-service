@@ -1,0 +1,14 @@
+{
+  "name": "cloudqr-lambda",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Serverless QR generator for CloudQR Service",
+  "main": "index.js",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.947.0",
+    "qrcode": "^1.5.4"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
