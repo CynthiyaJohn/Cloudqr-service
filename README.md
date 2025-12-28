@@ -1,27 +1,44 @@
-🌩️ CloudQR Service
+# 🌩️ CloudQR Service
 
-A Serverless QR Code Generator using AWS Lambda, S3, API Gateway & React
+**CloudQR** is a modern **serverless QR code generation service** built using AWS cloud primitives and a lightweight React frontend.
 
-CloudQR is a modern cloud-powered service that converts any text or URL into a QR code.
-The QR is generated in AWS Lambda, securely stored in Amazon S3, and displayed through a lightweight React UI.
+It converts any text or URL into a QR code, generates it using AWS Lambda, stores it securely in Amazon S3, and serves it via an API Gateway endpoint to a responsive React UI.
 
-🖼️ User Interface
-Home Screen
+This project demonstrates a **clean serverless architecture**, practical AWS integration, and real-world deployment workflow.
 
-QR Code Output
+---
 
-☁️ AWS Architecture Documentation
-S3 Bucket
+## ✨ Features
 
-Lambda Architecture Diagram
+* 🔗 Generate QR codes from text or URLs
+* ☁️ Fully serverless backend using AWS Lambda
+* 🪣 Secure QR image storage in Amazon S3
+* 🌐 API Gateway–based HTTP access
+* ⚛️ Lightweight React + Vite frontend
+* 📊 CloudWatch logging for observability
+* 🔐 IAM-based least-privilege access control
 
-Lambda Function List
+---
 
-CloudWatch Logs
+## 🖼️ Screenshots & Documentation
 
-IAM Permissions
+The repository includes visual references for:
 
-🏗️ Project Structure
+* User Interface – Home Screen
+* Generated QR Code Output
+* S3 Bucket Structure
+* Lambda Function Configuration
+* AWS Architecture Diagram
+* CloudWatch Logs
+* IAM Role & Permissions
+
+*All screenshots and diagrams are stored in the `screenshots/` and `architecture/` directories.*
+
+---
+
+## 🏗️ Project Structure
+
+```
 cloudqr-service/
 │
 ├── backend/
@@ -39,71 +56,97 @@ cloudqr-service/
 │       └── styles.css
 │
 ├── architecture/
+│   └── documents/
 │
-└── documents/
-    └── screenshots/
+└── screenshots/
+```
 
+---
 
-🚀 Frontend (Local Development)
+## 🚀 Frontend – Local Development
 
+```bash
 cd frontend
 npm install
+```
 
+Create a `.env` file in the `frontend` directory:
 
-Create .env file:
-
+```env
 VITE_API_URL=<YOUR_API_GATEWAY_URL>
+```
 
+Start the development server:
 
-Start development server:
-
+```bash
 npm run dev
+```
 
-⚙️ Backend Deployment (AWS Lambda)
+---
+
+## ⚙️ Backend – AWS Lambda Deployment
+
+```bash
 cd backend/lambda
 npm install --production
 zip -r function.zip index.js node_modules package.json
+```
 
+Deploy the function:
 
-Deploy to AWS:
-
+```bash
 aws lambda update-function-code \
   --function-name <LAMBDA_NAME> \
   --zip-file fileb://function.zip
+```
 
-🔧 Required AWS Permissions
-Lambda IAM Role must allow:
+---
 
-s3:PutObject
+## 🔧 Required AWS Configuration
 
-s3:GetObject
+### Lambda IAM Role Permissions
 
-logs:*
+* `s3:PutObject`
+* `s3:GetObject`
+* `logs:*`
 
-API Gateway Requirements:
+### API Gateway
 
-Must integrate with Lambda
+* Integrated with Lambda
+* CORS enabled (open for demo purposes)
 
-CORS enabled (* allowed for demo)
+### S3 Bucket
 
-S3 Bucket:
+* Public access **or** signed URLs for QR image retrieval
 
-Public access or signed URLs for image retrieval
+---
 
-📌 Tech Stack
+## 📌 Tech Stack
 
-AWS Lambda (Node.js)
+* **AWS Lambda** (Node.js)
+* **Amazon S3**
+* **API Gateway**
+* **React + Vite**
+* **CloudWatch**
+* **IAM**
 
-Amazon S3
+---
 
-API Gateway
+## 🎯 Purpose & Learning Outcomes
 
-React + Vite
+This project is designed to demonstrate:
 
-CloudWatch
+* Practical serverless application design
+* End-to-end AWS service integration
+* Clean separation of frontend and backend
+* Real deployment and logging workflows
 
-IAM
+It is suitable for **portfolio showcase, internships, and cloud fundamentals interviews**.
 
-📄 License
+---
 
-MIT License.
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
